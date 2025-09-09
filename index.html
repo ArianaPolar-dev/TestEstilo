@@ -335,7 +335,7 @@
 <body>
   <div class="container">
     <div class="intro" id="intro">
-      <img src="Black Aesthetic Photo Collage Instagram Post.png" alt="Intro Test" onerror="this.style.display='none'">
+      <img src="intro.jpg" alt="Intro Test" onerror="this.style.display='none'">
       <h1>🌌 ¿Qué estética te representa?</h1>
       <p>Responde estas 8 preguntas rápidas y descubre qué estilo encaja más con tu personalidad ✨</p>
       <button onclick="startQuiz()">Comenzar Test</button>
@@ -435,7 +435,7 @@
       </div>
 
       <div class="finish-section" id="finishSection">
-        <img src="osopolar.jpg" alt="Final Test" onerror="this.style.display='none'">
+        <img src="finish.jpg" alt="Final Test" onerror="this.style.display='none'">
         <h3>¡Ya casi terminamos! ✨</h3>
         <p>Haz clic para descubrir tu estética perfecta</p>
         <button type="submit" id="finishBtn">Ver mi resultado 🎉</button>
@@ -455,68 +455,17 @@
 
   <script>
     const results = {
-  cottagecore: { 
-    title: "🌸 Cottagecore", 
-    desc: "Naturaleza, tranquilidad, flores y pan casero. Eres una persona que busca la simplicidad y encuentra belleza en lo cotidiano.", 
-    color: "linear-gradient(135deg, #fce4ec, #f8bbd9)", 
-    img: "cottagecore.png" 
-  },
-  cyberpunk: { 
-    title: "🟦 Cyberpunk", 
-    desc: "Caos urbano, neón y rebeldía futurista. Eres innovador y no temes desafiar las normas establecidas.", 
-    color: "linear-gradient(135deg, #0f172a, #1e293b)", 
-    img: "cyberpunk.png" 
-  },
-  darkacademia: { 
-    title: "📚 Dark Academia", 
-    desc: "Poesía, misterio y bibliotecas antiguas. Valoras el conocimiento y tienes una personalidad profunda e intelectual.", 
-    color: "linear-gradient(135deg, #2f2f2f, #4a3728)", 
-    img: "darkacademia.png" 
-  },
-  lightacademia: { 
-    title: "☕ Light Academia", 
-    desc: "Romántico, intelectual y optimista. Combinas sabiduría con alegría de vivir.", 
-    color: "linear-gradient(135deg, #f3e5ab, #fdf6e3)", 
-    img: "lightacademia.png" 
-  },
-  kawaii: { 
-    title: "🎀 Kawaii Pastel", 
-    desc: "Colores suaves, ternura y dulces kawaii. Mantienes tu lado tierno y no temes mostrarlo al mundo.", 
-    color: "linear-gradient(135deg, #ffe4f0, #ffd1dc)", 
-    img: "kawaii.png" 
-  },
-  vintage: { 
-    title: "📻 Vintage Retro", 
-    desc: "Nostalgia, vinilos y moda retro. Aprecias la elegancia atemporal y las cosas con historia.", 
-    color: "linear-gradient(135deg, #fbe9e7, #f3e5ab)", 
-    img: "vintage.png" 
-  },
-  grunge: { 
-    title: "🎸 Grunge", 
-    desc: "Rebeldía, rock alternativo y estilo caótico. Eres auténtico y no te importa ir contra la corriente.", 
-    color: "linear-gradient(135deg, #212121, #424242)", 
-    img: "grunge.png" 
-  },
-  ethereal: { 
-    title: "🧚 Fairycore", 
-    desc: "Magia, hadas y un aire etéreo. Tienes una conexión especial con lo místico y lo bello.", 
-    color: "linear-gradient(135deg, #e0f7fa, #e1f5fe)", 
-    img: "ethereal.png" 
-  },
-  minimalist: { 
-    title: "⚪ Minimalist", 
-    desc: "Sencillez, orden y calma interior. Encuentras belleza en la simplicidad y valoras lo esencial.", 
-    color: "linear-gradient(135deg, #eceff1, #f5f5f5)", 
-    img: "minimalist.png" 
-  },
-  y2k: { 
-    title: "💿 Y2K Aesthetic", 
-    desc: "Brillos metálicos y moda de los 2000s. Eres nostálgico del futuro y no temes experimentar.", 
-    color: "linear-gradient(135deg, #f3e5f5, #e1bee7)", 
-    img: "y2k.png" 
-  }
-};
-
+      cottagecore: { title: "🌸 Cottagecore", desc: "Naturaleza, tranquilidad, flores y pan casero. Eres una persona que busca la simplicidad y encuentra belleza en lo cotidiano.", color: "linear-gradient(135deg, #fce4ec, #f8bbd9)", img: "cottagecore.png" },
+      cyberpunk: { title: "🟦 Cyberpunk", desc: "Caos urbano, neón y rebeldía futurista. Eres innovador y no temes desafiar las normas establecidas.", color: "linear-gradient(135deg, #0f172a, #1e293b)", img: "cyberpunk.png" },
+      darkacademia: { title: "📚 Dark Academia", desc: "Poesía, misterio y bibliotecas antiguas. Valoras el conocimiento y tienes una personalidad profunda e intelectual.", color: "linear-gradient(135deg, #2f2f2f, #4a3728)", img: "darkacademia.png" },
+      lightacademia: { title: "☕ Light Academia", desc: "Romántico, intelectual y optimista. Combinas sabiduría con alegría de vivir.", color: "linear-gradient(135deg, #f3e5ab, #fdf6e3)", img: "lightacademia.png" },
+      kawaii: { title: "🎀 Kawaii Pastel", desc: "Colores suaves, ternura y dulces kawaii. Mantienes tu lado tierno y no temes mostrarlo al mundo.", color: "linear-gradient(135deg, #ffe4f0, #ffd1dc)", img: "kawaii.png" },
+      vintage: { title: "📻 Vintage Retro", desc: "Nostalgia, vinilos y moda retro. Aprecias la elegancia atemporal y las cosas con historia.", color: "linear-gradient(135deg, #fbe9e7, #f3e5ab)", img: "vintage.png" },
+      grunge: { title: "🎸 Grunge", desc: "Rebeldía, rock alternativo y estilo caótico. Eres auténtico y no te importa ir contra la corriente.", color: "linear-gradient(135deg, #212121, #424242)", img: "grunge.png" },
+      ethereal: { title: "🧚 Fairycore", desc: "Magia, hadas y un aire etéreo. Tienes una conexión especial con lo místico y lo bello.", color: "linear-gradient(135deg, #e0f7fa, #e1f5fe)", img: "ethereal.png" },
+      minimalist: { title: "⚪ Minimalist", desc: "Sencillez, orden y calma interior. Encuentras belleza en la simplicidad y valoras lo esencial.", color: "linear-gradient(135deg, #eceff1, #f5f5f5)", img: "minimalist.png" },
+      y2k: { title: "💿 Y2K Aesthetic", desc: "Brillos metálicos y moda de los 2000s. Eres nostálgico del futuro y no temes experimentar.", color: "linear-gradient(135deg, #f3e5f5, #e1bee7)", img: "y2k.png" }
+    };
 
     let currentQuestion = 1;
 
@@ -566,7 +515,25 @@
       document.body.style.background = results[top].color;
       document.getElementById("resultTitle").textContent = results[top].title;
       document.getElementById("resultDesc").textContent = results[top].desc;
-      document.getElementById("resultImg").src = results[top].img;
+      
+      // Intentar mostrar la imagen, si falla usar iconos
+      const imgElement = document.getElementById("resultImg");
+      const imgContainer = document.getElementById("resultImgContainer");
+      const iconElement = document.getElementById("resultIcon");
+      
+      imgElement.src = results[top].img;
+      imgElement.onload = function() {
+        imgContainer.style.display = "block";
+        iconElement.style.display = "none";
+        document.querySelector(".download-btn").style.display = "inline-block";
+      };
+      imgElement.onerror = function() {
+        imgContainer.style.display = "none";
+        iconElement.style.display = "block";
+        iconElement.textContent = results[top].icon;
+        document.querySelector(".download-btn").style.display = "none";
+      };
+      
       document.getElementById("quizForm").style.display = "none";
       document.getElementById("result").style.display = "block";
       
