@@ -133,7 +133,7 @@
       margin-top: 15px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-      min-height: 44px; /* Para facilitar el toque en móviles */
+      min-height: 44px;
     }
     
     button:hover {
@@ -246,7 +246,7 @@
       text-align: center;
     }
     
-    /* Mejoras para pantallas muy pequeñas */
+    /* Responsive design */
     @media (max-width: 480px) {
       body {
         padding: 5px;
@@ -278,7 +278,6 @@
       }
     }
     
-    /* Mejoras para tablets */
     @media (min-width: 768px) and (max-width: 1024px) {
       .container {
         max-width: 700px;
@@ -296,7 +295,6 @@
       }
     }
     
-    /* Mejoras para pantallas grandes */
     @media (min-width: 1025px) {
       body {
         padding: 20px;
@@ -313,7 +311,6 @@
       }
     }
     
-    /* Estados de focus para accesibilidad */
     button:focus,
     label:focus-within,
     input:focus {
@@ -321,7 +318,6 @@
       outline-offset: 2px;
     }
     
-    /* Animación de carga */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -337,7 +333,7 @@
     <div class="intro" id="intro">
       <img src="Black Aesthetic Photo Collage Instagram Post.png" alt="Intro Test" onerror="this.style.display='none'">
       <h1>🌌 ¿Qué estética te representa?</h1>
-      <p>Responde estas 8 preguntas rápidas y descubre qué estilo encaja más con tu personalidad ✨</p>
+      <p>Responde estas 8 preguntas y descubre qué estilo encaja más con tu personalidad ✨</p>
       <button onclick="startQuiz()">Comenzar Test</button>
     </div>
 
@@ -348,105 +344,105 @@
 
       <div class="question-card" id="q1">
         <div class="question-number">Pregunta 1 de 8</div>
-        <p>Si tu vida fuera una película, ¿cuál sería la escena de apertura?</p>
+        <p>¿Qué tipo de vacaciones te atraen más?</p>
         <div class="options-container">
-          <label><input type="radio" name="q1" value="cottagecore"> 🌅 Despertando en una cabaña con pan recién horneado</label>
-          <label><input type="radio" name="q1" value="cyberpunk"> 🌃 Corriendo por callejones neón con música electrónica</label>
-          <label><input type="radio" name="q1" value="darkacademia"> 📖 Leyendo en una biblioteca antigua mientras llueve</label>
-          <label><input type="radio" name="q1" value="kawaii"> 🌈 Bailando en un cuarto lleno de peluches coloridos</label>
-          <label><input type="radio" name="q1" value="ethereal"> ✨ Caminando descalza por un bosque mágico</label>
-          <label><input type="radio" name="q1" value="grunge"> 🎸 Tocando guitarra en un garaje abandonado</label>
+          <label><input type="radio" name="q1" value="cottagecore"> 🏔️ Cabaña en la montaña sin wifi</label>
+          <label><input type="radio" name="q1" value="cyberpunk"> 🏙️ Tokio: luces, tecnología y caos urbano</label>
+          <label><input type="radio" name="q1" value="darkacademia"> 🏛️ Recorriendo museos y bibliotecas de Europa</label>
+          <label><input type="radio" name="q1" value="kawaii"> 🎡 Disneyland con todos los personajes</label>
+          <label><input type="radio" name="q1" value="ethereal"> 🌙 Islandia: auroras boreales y paisajes místicos</label>
+          <label><input type="radio" name="q1" value="grunge"> 🎪 Festival de música underground</label>
         </div>
       </div>
 
       <div class="question-card" id="q2">
         <div class="question-number">Pregunta 2 de 8</div>
-        <p>¿Qué superpoder secreto te gustaría tener?</p>
+        <p>¿Qué te parece más interesante estudiar?</p>
         <div class="options-container">
-          <label><input type="radio" name="q2" value="ethereal"> 🧚 Hablar con plantas y animales</label>
-          <label><input type="radio" name="q2" value="cyberpunk"> 🤖 Hackear cualquier sistema con la mente</label>
-          <label><input type="radio" name="q2" value="darkacademia"> 🔮 Leer los pensamientos de las personas</label>
-          <label><input type="radio" name="q2" value="y2k"> ✨ Teletransportarme a cualquier lugar del mundo</label>
-          <label><input type="radio" name="q2" value="minimalist"> 🧘 Detener el tiempo para meditar</label>
-          <label><input type="radio" name="q2" value="vintage"> 🕰️ Viajar en el tiempo a cualquier época</label>
+          <label><input type="radio" name="q2" value="ethereal"> 🔮 Mitología y simbolismo antiguo</label>
+          <label><input type="radio" name="q2" value="cyberpunk"> 💻 Inteligencia artificial y robótica</label>
+          <label><input type="radio" name="q2" value="darkacademia"> 📜 Historia del arte y literatura clásica</label>
+          <label><input type="radio" name="q2" value="y2k"> 🌐 Diseño gráfico y tendencias digitales</label>
+          <label><input type="radio" name="q2" value="minimalist"> 🧠 Filosofía oriental y mindfulness</label>
+          <label><input type="radio" name="q2" value="vintage"> 🎭 Historia del cine y fotografía analógica</label>
         </div>
       </div>
 
       <div class="question-card" id="q3">
         <div class="question-number">Pregunta 3 de 8</div>
-        <p>En una fiesta, ¿dónde es más probable encontrarte?</p>
+        <p>¿Cuál es tu momento favorito del día?</p>
         <div class="options-container">
-          <label><input type="radio" name="q3" value="grunge"> 🎵 En el sótano escuchando música alternativa</label>
-          <label><input type="radio" name="q3" value="kawaii"> 🍰 En la cocina preparando postres kawaii</label>
-          <label><input type="radio" name="q3" value="lightacademia"> 📚 En la biblioteca hablando de libros</label>
-          <label><input type="radio" name="q3" value="y2k"> 🕺 En la pista de baile con outfits llamativos</label>
-          <label><input type="radio" name="q3" value="ethereal"> 🌙 En el jardín mirando las estrellas</label>
-          <label><input type="radio" name="q3" value="minimalist"> 🏠 Prefiero quedarme en casa con té</label>
+          <label><input type="radio" name="q3" value="grunge"> 🌃 3 AM cuando todo está en silencio</label>
+          <label><input type="radio" name="q3" value="kawaii"> ☀️ La mañana llena de posibilidades</label>
+          <label><input type="radio" name="q3" value="lightacademia"> ☕ Media mañana con café y buena luz</label>
+          <label><input type="radio" name="q3" value="y2k"> 🎉 La noche cuando todo cobra vida</label>
+          <label><input type="radio" name="q3" value="ethereal"> 🌅 El amanecer, entre sueños y realidad</label>
+          <label><input type="radio" name="q3" value="minimalist"> 🕕 Cualquiera, todos los momentos son válidos</label>
         </div>
       </div>
 
       <div class="question-card" id="q4">
         <div class="question-number">Pregunta 4 de 8</div>
-        <p>¿Cuál sería tu ritual matutino perfecto?</p>
+        <p>¿Qué cualidad valoras más en las personas?</p>
         <div class="options-container">
-          <label><input type="radio" name="q4" value="cottagecore"> 🌻 Regar plantas y recoger huevos de gallina</label>
-          <label><input type="radio" name="q4" value="cyberpunk"> 💊 Café negro mientras reviso hologramas</label>
-          <label><input type="radio" name="q4" value="darkacademia"> ✍️ Escribir en mi diario con pluma vintage</label>
-          <label><input type="radio" name="q4" value="minimalist"> 🧘 Meditación y yoga en silencio</label>
-          <label><input type="radio" name="q4" value="kawaii"> 🎀 Routine de skincare con productos cute</label>
-          <label><input type="radio" name="q4" value="vintage"> 📻 Escuchar música clásica mientras me arreglo</label>
+          <label><input type="radio" name="q4" value="cottagecore"> 🤝 La generosidad y bondad genuina</label>
+          <label><input type="radio" name="q4" value="cyberpunk"> ⚡ La innovación y el pensamiento disruptivo</label>
+          <label><input type="radio" name="q4" value="darkacademia"> 🎓 La profundidad intelectual</label>
+          <label><input type="radio" name="q4" value="minimalist"> 🕊️ La calma y la estabilidad emocional</label>
+          <label><input type="radio" name="q4" value="kawaii"> 💕 La dulzura y el optimismo</label>
+          <label><input type="radio" name="q4" value="vintage"> 🎩 La elegancia y los buenos modales</label>
         </div>
       </div>
 
       <div class="question-card" id="q5">
         <div class="question-number">Pregunta 5 de 8</div>
-        <p>Si pudieras vivir en cualquier lugar, ¿cuál elegirías?</p>
+        <p>¿Qué tipo de espacio de trabajo te inspira más?</p>
         <div class="options-container">
-          <label><input type="radio" name="q5" value="cottagecore"> 🏡 Una granja alejada de la ciudad</label>
-          <label><input type="radio" name="q5" value="cyberpunk"> 🏙️ Un apartamento en el piso 50 de una megalópolis</label>
-          <label><input type="radio" name="q5" value="ethereal"> 🏰 Un castillo mágico en las nubes</label>
-          <label><input type="radio" name="q5" value="grunge"> 🏢 Un loft industrial en el centro urbano</label>
-          <label><input type="radio" name="q5" value="lightacademia"> 🎓 Cerca de una universidad histórica</label>
-          <label><input type="radio" name="q5" value="vintage"> 🏛️ Una mansión victoriana con historia</label>
+          <label><input type="radio" name="q5" value="cottagecore"> 🪟 Junto a una ventana con vista al jardín</label>
+          <label><input type="radio" name="q5" value="cyberpunk"> 💾 Oficina moderna con múltiples pantallas</label>
+          <label><input type="radio" name="q5" value="ethereal"> 🕯️ Habitación con cristales y plantas colgantes</label>
+          <label><input type="radio" name="q5" value="grunge"> 🏢 Loft industrial con música de fondo</label>
+          <label><input type="radio" name="q5" value="lightacademia"> 📚 Escritorio de madera con libros ordenados</label>
+          <label><input type="radio" name="q5" value="vintage"> 🖋️ Estudio clásico con muebles antiguos</label>
         </div>
       </div>
 
       <div class="question-card" id="q6">
         <div class="question-number">Pregunta 6 de 8</div>
-        <p>¿Qué actividad te relajaría más después de un día estresante?</p>
+        <p>¿Cómo prefieres que sea tu círculo social?</p>
         <div class="options-container">
-          <label><input type="radio" name="q6" value="kawaii"> 🧸 Ver anime con dulces japoneses</label>
-          <label><input type="radio" name="q6" value="darkacademia"> 🕯️ Leer poesía a la luz de velas</label>
-          <label><input type="radio" name="q6" value="grunge"> 🎧 Escuchar música fuerte y desahogarme</label>
-          <label><input type="radio" name="q6" value="ethereal"> 🌸 Tomar un baño de burbujas con pétalos</label>
-          <label><input type="radio" name="q6" value="y2k"> 🎮 Jugar videojuegos retro</label>
-          <label><input type="radio" name="q6" value="minimalist"> 🕯️ Meditar en un espacio ordenado</label>
+          <label><input type="radio" name="q6" value="kawaii"> 🎈 Grupo grande y divertido que siempre está planeando algo</label>
+          <label><input type="radio" name="q6" value="darkacademia"> 📖 Pocos pero muy profundos, que disfruten debates intelectuales</label>
+          <label><input type="radio" name="q6" value="grunge"> 🎸 Pequeño grupo de inadaptados que se entienden sin palabras</label>
+          <label><input type="radio" name="q6" value="ethereal"> 🦋 Personas sensibles que aprecien la belleza en detalles sutiles</label>
+          <label><input type="radio" name="q6" value="y2k"> ✨ Creativos y extrovertidos que no teman experimentar</label>
+          <label><input type="radio" name="q6" value="minimalist"> 🤍 Prefiero calidad sobre cantidad en las amistades</label>
         </div>
       </div>
 
       <div class="question-card" id="q7">
         <div class="question-number">Pregunta 7 de 8</div>
-        <p>¿Cuál es tu forma ideal de expresarte creativamente?</p>
+        <p>¿Qué te motiva más cuando enfrentas un desafío?</p>
         <div class="options-container">
-          <label><input type="radio" name="q7" value="cottagecore"> 🧵 Tejer, bordar o hacer manualidades</label>
-          <label><input type="radio" name="q7" value="cyberpunk"> 💻 Arte digital futurista</label>
-          <label><input type="radio" name="q7" value="lightacademia"> 📝 Escribir ensayos o poemas</label>
-          <label><input type="radio" name="q7" value="kawaii"> 🎨 Dibujar personajes tiernos</label>
-          <label><input type="radio" name="q7" value="grunge"> 🎸 Música alternativa o rebelde</label>
-          <label><input type="radio" name="q7" value="vintage"> 📸 Fotografía analógica</label>
+          <label><input type="radio" name="q7" value="cottagecore"> 🌱 Saber que ayudará a crear algo mejor para todos</label>
+          <label><input type="radio" name="q7" value="cyberpunk"> 🚀 La posibilidad de revolucionar algo establecido</label>
+          <label><input type="radio" name="q7" value="lightacademia"> 💡 Aprender algo nuevo y expandir mi conocimiento</label>
+          <label><input type="radio" name="q7" value="kawaii"> 🌈 Hacer sonreír a las personas que amo</label>
+          <label><input type="radio" name="q7" value="grunge"> 🔥 Demostrar que puedo lograrlo a mi manera</label>
+          <label><input type="radio" name="q7" value="vintage"> 🏆 Mantener la tradición y hacerlo con clase</label>
         </div>
       </div>
 
       <div class="question-card" id="q8">
         <div class="question-number">Pregunta 8 de 8</div>
-        <p>¿Qué frase describe mejor tu filosofía de vida?</p>
+        <p>¿Qué elemento es más importante en tu estilo personal?</p>
         <div class="options-container">
-          <label><input type="radio" name="q8" value="ethereal"> ✨ "La magia existe en los pequeños detalles"</label>
-          <label><input type="radio" name="q8" value="minimalist"> 🕊️ "Menos es más, la simplicidad es sabiduría"</label>
-          <label><input type="radio" name="q8" value="cyberpunk"> ⚡ "El futuro no espera, hay que crearlo"</label>
-          <label><input type="radio" name="q8" value="grunge"> 🔥 "Sé auténtico, aunque el mundo no lo entienda"</label>
-          <label><input type="radio" name="q8" value="darkacademia"> 🌑 "El conocimiento es poder, la ignorancia es peligro"</label>
-          <label><input type="radio" name="q8" value="y2k"> 🌈 "La vida es para vivirla a todo color"</label>
+          <label><input type="radio" name="q8" value="ethereal"> ✨ Que refleje mi mundo interior y mis emociones</label>
+          <label><input type="radio" name="q8" value="minimalist"> 🤍 Que sea funcional y no me distraiga de lo importante</label>
+          <label><input type="radio" name="q8" value="cyberpunk"> ⚡ Que demuestre que no sigo las reglas convencionales</label>
+          <label><input type="radio" name="q8" value="grunge"> 🔥 Que sea auténtico, sin importar lo que piensen otros</label>
+          <label><input type="radio" name="q8" value="darkacademia"> 📚 Que tenga historia y significado detrás</label>
+          <label><input type="radio" name="q8" value="y2k"> 💿 Que sea llamativo y exprese mi creatividad</label>
         </div>
       </div>
 
@@ -473,61 +469,61 @@
     const results = {
       cottagecore: { 
         title: "🌸 Cottagecore", 
-        desc: "Naturaleza, tranquilidad, flores y pan casero. Eres una persona que busca la simplicidad y encuentra belleza en lo cotidiano.", 
+        desc: "Tu alma busca la simplicidad y la conexión genuina. Valoras las cosas hechas con amor y encuentras belleza en lo cotidiano. Prefieres la autenticidad sobre las apariencias.", 
         color: "linear-gradient(135deg, #fce4ec, #f8bbd9)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/cottagecore.png" 
       },
       cyberpunk: { 
         title: "🟦 Cyberpunk", 
-        desc: "Caos urbano, neón y rebeldía futurista. Eres innovador y no temes desafiar las normas establecidas.", 
+        desc: "Eres un visionario que abraza el caos y la innovación. No temes desafiar lo establecido y siempre buscas nuevas formas de expresión. El futuro te emociona más que el pasado.", 
         color: "linear-gradient(135deg, #0f172a, #1e293b)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/cyberpunk.png" 
       },
       darkacademia: { 
         title: "📚 Dark Academia", 
-        desc: "Poesía, misterio y bibliotecas antiguas. Valoras el conocimiento y tienes una personalidad profunda e intelectual.", 
+        desc: "Tu mente es profunda y reflexiva. Aprecias la complejidad del conocimiento y encuentras belleza en los misterios sin resolver. Valoras la sustancia sobre la superficialidad.", 
         color: "linear-gradient(135deg, #2f2f2f, #4a3728)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/darkacademia.png" 
       },
       lightacademia: { 
         title: "☕ Light Academia", 
-        desc: "Romántico, intelectual y optimista. Combinas sabiduría con alegría de vivir.", 
+        desc: "Combinas sabiduría con optimismo. Te encanta aprender pero mantienes una perspectiva luminosa de la vida. Encuentras inspiración en el crecimiento personal constante.", 
         color: "linear-gradient(135deg, #f3e5ab, #fdf6e3)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/lightacademia.png" 
       },
       kawaii: { 
         title: "🎀 Kawaii Pastel", 
-        desc: "Colores suaves, ternura y dulces kawaii. Mantienes tu lado tierno y no temes mostrarlo al mundo.", 
+        desc: "Tu energía es contagiosa y tu corazón, genuinamente dulce. Crees en la magia de las pequeñas alegrías y no temes mostrar tu lado tierno al mundo.", 
         color: "linear-gradient(135deg, #ffe4f0, #ffd1dc)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/kawaii.png" 
       },
       vintage: { 
         title: "📻 Vintage Retro", 
-        desc: "Nostalgia, vinilos y moda retro. Aprecias la elegancia atemporal y las cosas con historia.", 
+        desc: "Aprecias la elegancia atemporal y el valor de las tradiciones. Tienes un gusto refinado y entiendes que lo clásico nunca pasa de moda.", 
         color: "linear-gradient(135deg, #fbe9e7, #f3e5ab)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/vintage.png" 
       },
       grunge: { 
         title: "🎸 Grunge", 
-        desc: "Rebeldía, rock alternativo y estilo caótico. Eres auténtico y no te importa ir contra la corriente.", 
+        desc: "Tu autenticidad es tu superpoder. No necesitas validación externa y valoras la honestidad brutal sobre las convenciones sociales. Marchas a tu propio ritmo.", 
         color: "linear-gradient(135deg, #212121, #424242)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/grunge.png" 
       },
       ethereal: { 
         title: "🧚 Fairycore", 
-        desc: "Magia, hadas y un aire etéreo. Tienes una conexión especial con lo místico y lo bello.", 
+        desc: "Tu sensibilidad te permite ver magia donde otros ven lo ordinario. Tienes una conexión especial con lo místico y encuentras belleza en los detalles más sutiles.", 
         color: "linear-gradient(135deg, #e0f7fa, #e1f5fe)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/ethereal.png" 
       },
       minimalist: { 
         title: "⚪ Minimalist", 
-        desc: "Sencillez, orden y calma interior. Encuentras belleza en la simplicidad y valoras lo esencial.", 
+        desc: "Tu fortaleza está en la claridad mental y la paz interior. Entiendes que la verdadera abundancia viene de valorar lo esencial y soltar lo superfluo.", 
         color: "linear-gradient(135deg, #eceff1, #f5f5f5)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/minimalist.png" 
       },
       y2k: { 
         title: "💿 Y2K Aesthetic", 
-        desc: "Brillos metálicos y moda de los 2000s. Eres nostálgico del futuro y no temes experimentar.", 
+        desc: "Tu espíritu creativo y experimental te lleva a explorar constantemente. No temes ser bold y siempre estás un paso adelante en tendencias y expresión personal.", 
         color: "linear-gradient(135deg, #f3e5f5, #e1bee7)", 
         img: "https://github.com/ArianaPolar-dev/TestEstilo/raw/main/y2k.png" 
       }
@@ -549,7 +545,6 @@
 
     document.querySelectorAll(".question-card input").forEach(input => {
       input.addEventListener("change", () => {
-        // Pequeña pausa para mejor UX
         setTimeout(() => {
           document.getElementById("q"+currentQuestion).style.display = "none";
           currentQuestion++;
@@ -585,7 +580,6 @@
       document.getElementById("quizForm").style.display = "none";
       document.getElementById("result").style.display = "block";
       
-      // Scroll al resultado en móviles
       document.getElementById("result").scrollIntoView({ behavior: 'smooth' });
     });
 
@@ -608,7 +602,6 @@
         navigator.clipboard.writeText(url).then(() => {
           alert("¡Link copiado! 📋 Compártelo con tus amigos");
         }).catch(() => {
-          // Fallback para navegadores más antiguos
           const textArea = document.createElement("textarea");
           textArea.value = url;
           document.body.appendChild(textArea);
@@ -620,7 +613,6 @@
       }
     }
 
-    // Prevenir zoom en inputs en iOS
     document.addEventListener('touchstart', {}, true);
   </script>
 </body>
