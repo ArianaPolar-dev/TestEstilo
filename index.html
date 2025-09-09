@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué estética te representa?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #d6ecfa 0%, #c3dafe 100%);
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      transition: background 0.8s ease;
+    }
+    
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      margin: 10px auto;
+      position: relative;
+    }
+    
+    h1 {
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      margin-bottom: 15px;
+      line-height: 1.3;
+      color: #2c3e50;
+    }
+    
+    .intro {
+      padding: 10px 0;
+    }
+    
+    .intro img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    
+    .intro p {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    .question-card {
+      display: none;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 15px;
+      text-align: left;
+      animation: slideIn 0.5s ease forwards;
+      border: 2px solid #e9ecef;
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateX(30px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .question-card p {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: clamp(1rem, 3.5vw, 1.1rem);
+      color: #2c3e50;
+      text-align: center;
+    }
+    
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    label {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      background: white;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid #e9ecef;
+      font-size: clamp(0.85rem, 3vw, 0.95rem);
+      line-height: 1.4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    label:hover {
+      background: #f0f8ff;
+      border-color: #82b1ff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    label:active {
+      transform: translateY(0);
+    }
+    
+    input[type="radio"] {
+      margin-right: 12px;
+      transform: scale(1.2);
+      accent-color: #82b1ff;
+    }
+    
+    button {
+      background: linear-gradient(45deg, #82b1ff, #4a90e2);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 24px;
+      cursor: pointer;
+      font-size: clamp(0.9rem, 3.5vw, 1rem);
+      font-weight: 600;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+      min-height: 44px; /* Para facilitar el toque en móviles */
+    }
+    
+    button:hover {
+      background: linear-gradient(45deg, #4a90e2, #3567a3);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .result {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 16px;
+    }
+    
+    .result h2 {
+      font-size: clamp(1.3rem, 4vw, 1.6rem);
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    
+    .result img {
+      max-width: min(200px, 80vw);
+      height: auto;
+      border-radius: 12px;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .result p {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .share-btn, .download-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(45deg, #4a90e2, #3567a3);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: clamp(0.85rem, 3vw, 0.95rem);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      min-height: 44px;
+      width: 100%;
+      max-width: 200px;
+      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    }
+    
+    .share-btn:hover, .download-btn:hover {
+      background: linear-gradient(45deg, #3567a3, #2851a3);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    }
+    
+    .finish-section {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #e8f5e8, #f0f8e8);
+      border-radius: 16px;
+      text-align: center;
+    }
+    
+    .finish-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #e9ecef;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(45deg, #82b1ff, #4a90e2);
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+    
+    .question-number {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    /* Mejoras para pantallas muy pequeñas */
+    @media (max-width: 480px) {
+      body {
+        padding: 5px;
+      }
+      
+      .container {
+        padding: 15px;
+        margin: 5px;
+        border-radius: 15px;
+      }
+      
+      .question-card {
+        padding: 15px;
+      }
+      
+      label {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .buttons-container {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .share-btn, .download-btn {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+    
+    /* Mejoras para tablets */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .container {
+        max-width: 700px;
+        padding: 30px;
+      }
+      
+      .buttons-container {
+        flex-direction: row;
+        justify-content: center;
+      }
+      
+      .share-btn, .download-btn {
+        width: auto;
+        margin: 0 10px;
+      }
+    }
+    
+    /* Mejoras para pantallas grandes */
+    @media (min-width: 1025px) {
+      body {
+        padding: 20px;
+      }
+      
+      .buttons-container {
+        flex-direction: row;
+        justify-content: center;
+      }
+      
+      .share-btn, .download-btn {
+        width: auto;
+        margin: 0 10px;
+      }
+    }
+    
+    /* Estados de focus para accesibilidad */
+    button:focus,
+    label:focus-within,
+    input:focus {
+      outline: 2px solid #82b1ff;
+      outline-offset: 2px;
+    }
+    
+    /* Animación de carga */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .container {
+      animation: fadeIn 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="intro" id="intro">
+      <img src="Black Aesthetic Photo Collage Instagram Post.png" alt="Intro Test" onerror="this.style.display='none'">
+      <h1>🌌 ¿Qué estética te representa?</h1>
+      <p>Responde estas 8 preguntas rápidas y descubre qué estilo encaja más con tu personalidad ✨</p>
+      <button onclick="startQuiz()">Comenzar Test</button>
+    </div>
+
+    <form id="quizForm">
+      <div class="progress-bar" id="progressBar" style="display: none;">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+
+      <div class="question-card" id="q1">
+        <div class="question-number">Pregunta 1 de 8</div>
+        <p>¿Qué prefieres hacer un domingo?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q1" value="cottagecore"> 🌸 Hornear pan y disfrutar de la naturaleza</label>
+          <label><input type="radio" name="q1" value="cyberpunk"> 🎮 Jugar videojuegos futuristas</label>
+          <label><input type="radio" name="q1" value="darkacademia"> 📚 Leer un libro clásico en silencio</label>
+          <label><input type="radio" name="q1" value="kawaii"> 🍭 Ver anime con dulces</label>
+        </div>
+      </div>
+
+      <div class="question-card" id="q2">
+        <div class="question-number">Pregunta 2 de 8</div>
+        <p>¿Qué outfit elegirías para una cita?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q2" value="grunge"> 🎸 Jeans rotos y camisa de cuadros</label>
+          <label><input type="radio" name="q2" value="minimalist"> ⚪ Algo simple pero elegante</label>
+          <label><input type="radio" name="q2" value="y2k"> ✨ Ropa brillante y colorida</label>
+          <label><input type="radio" name="q2" value="vintage"> 👗 Vestido retro o ropa clásica</label>
+        </div>
+      </div>
+
+      <div class="question-card" id="q3">
+        <div class="question-number">Pregunta 3 de 8</div>
+        <p>¿Qué playlist describe mejor tu ánimo?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q3" value="lightacademia"> 🎼 Música clásica suave</label>
+          <label><input type="radio" name="q3" value="ethereal"> 🧚 Canciones tranquilas y mágicas</label>
+          <label><input type="radio" name="q3" value="cyberpunk"> 🎛️ Electrónica intensa</label>
+          <label><input type="radio" name="q3" value="grunge"> 🎸 Rock alternativo</label>
+        </div>
+      </div>
+
+      <div class="question-card" id="q4">
+        <div class="question-number">Pregunta 4 de 8</div>
+        <p>¿Qué bebida prefieres?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q4" value="cottagecore"> 🍵 Té de hierbas</label>
+          <label><input type="radio" name="q4" value="darkacademia"> ☕ Café negro</label>
+          <label><input type="radio" name="q4" value="y2k"> 🥤 Refresco con gas</label>
+          <label><input type="radio" name="q4" value="minimalist"> 💧 Agua mineral</label>
+        </div>
+      </div>
+
+      <div class="question-card" id="q5">
+        <div class="question-number">Pregunta 5 de 8</div>
+        <p>¿Qué paisaje te atrae más?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q5" value="ethereal"> 🌲 Bosques mágicos</label>
+          <label><input type="radio" name="q5" value="cyberpunk"> 🌆 Ciudades iluminadas con neón</label>
+          <label><input type="radio" name="q5" value="cottagecore"> 🌻 Campos de flores</label>
+          <label><input type="radio" name="q5" value="grunge"> 🏢 Callejones urbanos</label>
+        </div>
+      </div>
+
+      <div class="question-card" id="q6">
+        <div class="question-number">Pregunta 6 de 8</div>
+        <p>¿Qué tipo de película prefieres?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q6" value="kawaii"> 💕 Anime romántico</label>
+          <label><input type="radio" name="q6" value="darkacademia"> 🔍 Misterio o suspenso</label>
+          <label><input type="radio" name="q6" value="y2k"> 😄 Comedia divertida</label>
+          <label><input type="radio" name="q6" value="ethereal"> 🦄 Fantasía mágica</label>
+        </div>
+      </div>
+
+      <div class="question-card" id="q7">
+        <div class="question-number">Pregunta 7 de 8</div>
+        <p>¿Qué estación del año es tu favorita?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q7" value="cottagecore"> 🌸 Primavera</label>
+          <label><input type="radio" name="q7" value="grunge"> ❄️ Invierno</label>
+          <label><input type="radio" name="q7" value="y2k"> ☀️ Verano</label>
+          <label><input type="radio" name="q7" value="lightacademia"> 🍂 Otoño</label>
+        </div>
+      </div>
+
+      <div class="question-card" id="q8">
+        <div class="question-number">Pregunta 8 de 8</div>
+        <p>¿Qué actividad te gustaría más?</p>
+        <div class="options-container">
+          <label><input type="radio" name="q8" value="vintage"> 🏛️ Ir a un museo</label>
+          <label><input type="radio" name="q8" value="minimalist"> 🗂️ Organizar tu espacio</label>
+          <label><input type="radio" name="q8" value="cyberpunk"> 🤖 Hacer cosplay futurista</label>
+          <label><input type="radio" name="q8" value="ethereal"> 🌙 Pasear bajo la luna</label>
+        </div>
+      </div>
+
+      <div class="finish-section" id="finishSection">
+        <img src="osopolar.jpg" alt="Final Test" onerror="this.style.display='none'">
+        <h3>¡Ya casi terminamos! ✨</h3>
+        <p>Haz clic para descubrir tu estética perfecta</p>
+        <button type="submit" id="finishBtn">Ver mi resultado 🎉</button>
+      </div>
+    </form>
+
+    <div class="result" id="result">
+      <h2 id="resultTitle"></h2>
+      <img id="resultImg" src="" alt="Resultado" onerror="this.style.display='none'">
+      <p id="resultDesc"></p>
+      <div class="buttons-container">
+        <button class="download-btn" onclick="downloadImage()">📱 Descargar</button>
+        <button class="share-btn" onclick="shareQuiz()">🔗 Compartir</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const results = {
+  cottagecore: { 
+    title: "🌸 Cottagecore", 
+    desc: "Naturaleza, tranquilidad, flores y pan casero. Eres una persona que busca la simplicidad y encuentra belleza en lo cotidiano.", 
+    color: "linear-gradient(135deg, #fce4ec, #f8bbd9)", 
+    img: "cottagecore.png" 
+  },
+  cyberpunk: { 
+    title: "🟦 Cyberpunk", 
+    desc: "Caos urbano, neón y rebeldía futurista. Eres innovador y no temes desafiar las normas establecidas.", 
+    color: "linear-gradient(135deg, #0f172a, #1e293b)", 
+    img: "cyberpunk.png" 
+  },
+  darkacademia: { 
+    title: "📚 Dark Academia", 
+    desc: "Poesía, misterio y bibliotecas antiguas. Valoras el conocimiento y tienes una personalidad profunda e intelectual.", 
+    color: "linear-gradient(135deg, #2f2f2f, #4a3728)", 
+    img: "darkacademia.png" 
+  },
+  lightacademia: { 
+    title: "☕ Light Academia", 
+    desc: "Romántico, intelectual y optimista. Combinas sabiduría con alegría de vivir.", 
+    color: "linear-gradient(135deg, #f3e5ab, #fdf6e3)", 
+    img: "lightacademia.png" 
+  },
+  kawaii: { 
+    title: "🎀 Kawaii Pastel", 
+    desc: "Colores suaves, ternura y dulces kawaii. Mantienes tu lado tierno y no temes mostrarlo al mundo.", 
+    color: "linear-gradient(135deg, #ffe4f0, #ffd1dc)", 
+    img: "kawaii.png" 
+  },
+  vintage: { 
+    title: "📻 Vintage Retro", 
+    desc: "Nostalgia, vinilos y moda retro. Aprecias la elegancia atemporal y las cosas con historia.", 
+    color: "linear-gradient(135deg, #fbe9e7, #f3e5ab)", 
+    img: "vintage.png" 
+  },
+  grunge: { 
+    title: "🎸 Grunge", 
+    desc: "Rebeldía, rock alternativo y estilo caótico. Eres auténtico y no te importa ir contra la corriente.", 
+    color: "linear-gradient(135deg, #212121, #424242)", 
+    img: "grunge.png" 
+  },
+  ethereal: { 
+    title: "🧚 Fairycore", 
+    desc: "Magia, hadas y un aire etéreo. Tienes una conexión especial con lo místico y lo bello.", 
+    color: "linear-gradient(135deg, #e0f7fa, #e1f5fe)", 
+    img: "ethereal.png" 
+  },
+  minimalist: { 
+    title: "⚪ Minimalist", 
+    desc: "Sencillez, orden y calma interior. Encuentras belleza en la simplicidad y valoras lo esencial.", 
+    color: "linear-gradient(135deg, #eceff1, #f5f5f5)", 
+    img: "minimalist.png" 
+  },
+  y2k: { 
+    title: "💿 Y2K Aesthetic", 
+    desc: "Brillos metálicos y moda de los 2000s. Eres nostálgico del futuro y no temes experimentar.", 
+    color: "linear-gradient(135deg, #f3e5f5, #e1bee7)", 
+    img: "y2k.png" 
+  }
+};
+
+
+    let currentQuestion = 1;
+
+    function startQuiz(){
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("progressBar").style.display = "block";
+      document.getElementById("q1").style.display = "block";
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const progress = ((currentQuestion - 1) / 8) * 100;
+      document.getElementById("progressFill").style.width = progress + "%";
+    }
+
+    document.querySelectorAll(".question-card input").forEach(input => {
+      input.addEventListener("change", () => {
+        // Pequeña pausa para mejor UX
+        setTimeout(() => {
+          document.getElementById("q"+currentQuestion).style.display = "none";
+          currentQuestion++;
+          updateProgress();
+          
+          if(document.getElementById("q"+currentQuestion)){
+            document.getElementById("q"+currentQuestion).style.display = "block";
+          } else {
+            document.getElementById("progressBar").style.display = "none";
+            document.getElementById("finishSection").style.display = "block";
+          }
+        }, 300);
+      });
+    });
+
+    document.getElementById("quizForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let scores = {};
+      for (let key in results) scores[key] = 0;
+
+      const formData = new FormData(this);
+      for (let [, value] of formData.entries()) {
+        scores[value]++;
+      }
+
+      let top = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+      document.body.style.background = results[top].color;
+      document.getElementById("resultTitle").textContent = results[top].title;
+      document.getElementById("resultDesc").textContent = results[top].desc;
+      document.getElementById("resultImg").src = results[top].img;
+      document.getElementById("quizForm").style.display = "none";
+      document.getElementById("result").style.display = "block";
+      
+      // Scroll al resultado en móviles
+      document.getElementById("result").scrollIntoView({ behavior: 'smooth' });
+    });
+
+    function downloadImage(){
+      const link = document.createElement('a');
+      link.href = document.getElementById("resultImg").src;
+      link.download = "mi-estetica-resultado.png";
+      link.click();
+    }
+
+    function shareQuiz(){
+      if (navigator.share) {
+        navigator.share({
+          title: '¿Qué estética te representa?',
+          text: 'Descubre tu estilo estético con este test',
+          url: window.location.href
+        });
+      } else {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+          alert("¡Link copiado! 📋 Compártelo con tus amigos");
+        }).catch(() => {
+          // Fallback para navegadores más antiguos
+          const textArea = document.createElement("textarea");
+          textArea.value = url;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          alert("¡Link copiado! 📋 Compártelo con tus amigos");
+        });
+      }
+    }
+
+    // Prevenir zoom en inputs en iOS
+    document.addEventListener('touchstart', {}, true);
+  </script>
+</body>
+</html>
